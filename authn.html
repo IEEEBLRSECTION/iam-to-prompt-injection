@@ -1,0 +1,30 @@
+<section id="authn" data-transition="fade">
+<p class="eyebrow a-rise">AWS foundations</p>
+<h2 class="a-rise d1">A valid login is not a permission</h2>
+<div class="row">
+<div class="card grow colcard a-left d2">
+<p class="label">Authentication</p>
+<h3 class="h44">Who are you?</h3>
+<ul class="ul">
+<li>A human signs in to the application</li>
+<li>A workload assumes a role and gets temporary credentials</li>
+<li>No long-lived access keys in code, slides or notes</li>
+</ul>
+<div class="svc"><p class="svc-t">Cognito user pools</p><p class="svc-t">IAM roles</p><p class="svc-t">STS AssumeRole</p></div>
+</div>
+<p class="neq a-pop d4">≠</p>
+<div class="card grow colcard a-rise d3">
+<p class="label-o">Authorization</p>
+<h3 class="h44">What may you do, to which resource?</h3>
+<ul class="ul">
+<li>Scope each role to its intended resources and actions</li>
+<li>Decide per document and per operation in the application</li>
+<li>Review what is unused or exposed outside the account</li>
+</ul>
+<div class="svc"><p class="svc-t svc-o">IAM policies</p><p class="svc-t svc-o">Resource policies</p><p class="svc-t svc-o">Verified Permissions</p><p class="svc-t svc-o">IAM Access Analyzer</p></div>
+</div>
+</div>
+<p class="quote a-fade d6">A successful login does not authorize every document or operation.</p>
+<p class="foot">Subramanya · 05–17 min</p>
+<aside>Teach: shared responsibility. AWS secures the cloud; the application team owns authorization inside the application. Human identity versus workload identity: a person signs in through Cognito and gets tokens; a Lambda function runs under an IAM execution role and receives temporary credentials from STS. Prefer temporary access over embedded static keys. Authorization lives in IAM policies, resource policies such as S3 bucket policies, and application-level decisions; Verified Permissions is the managed option for fine-grained application authorization. IAM Access Analyzer helps find unused access and access shared outside the account. Exit check: participants distinguish authentication from authorization.</aside>
+</section>

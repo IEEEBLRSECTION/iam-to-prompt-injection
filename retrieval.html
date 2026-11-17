@@ -1,0 +1,28 @@
+<section id="retrieval" data-transition="fade">
+<p class="eyebrow a-rise">RAG authorization · demo</p>
+<h2 class="a-rise d1">Decide before the document reaches the model</h2>
+<div class="lane fragment">
+<div class="who"><p class="label">Caller</p><h3 class="h32">Engineering</h3></div>
+<x-shape kind="arrow-right" class="arr-s"></x-shape>
+<p class="ask">“Show me the Finance-only budget document”</p>
+<x-shape kind="arrow-right" class="arr-s"></x-shape>
+<div class="gate"><x-icon name="Lock" class="ic"></x-icon><p class="s24">Backend access check</p></div>
+<x-shape kind="arrow-right" class="arr-s"></x-shape>
+<p class="verdict v-deny vw170">DENY</p>
+<p class="s26 grow">Finance content never enters the model’s context.</p>
+</div>
+<div class="lane fragment">
+<div class="who"><p class="label">Caller</p><h3 class="h32">Finance</h3></div>
+<x-shape kind="arrow-right" class="arr-s"></x-shape>
+<p class="ask">“Show me the Finance-only budget document”</p>
+<x-shape kind="arrow-right" class="arr-s"></x-shape>
+<div class="gate"><x-icon name="Lock" class="ic"></x-icon><p class="s24">Backend access check</p></div>
+<x-shape kind="arrow-right" class="arr-s"></x-shape>
+<p class="verdict v-allow vw170">ALLOW</p>
+<p class="s26 grow">The budget is retrieved for a separately authenticated persona.</p>
+</div>
+<p class="s28 muted a-fade d3">A prompt that says “I am in Finance” does not change the identity the backend bound.</p>
+<p class="pill a-fade d4">Application-managed retrieval fixture; not a deployed Bedrock Knowledge Base</p>
+<p class="foot">Pradyoth · 48–58 min</p>
+<aside>48:00–52:00. On screen in the demo: trusted identity, candidate document, authorization result and the context actually sent to the model. Make the access decision before the document enters the model’s context; asking the model to keep a document secret after giving it the document is a weaker design. Click 1: confirm the Engineering caller, ask for the Finance-only document, show DENY and confirm Finance content is absent from the retrieval and context view. Click 2: switch through the authorized demo control to the separate Finance identity, repeat, show the permitted retrieval, then switch back to Engineering. Both are controls, not just a refusal message. Production mapping, without claiming the fixture implements either: Knowledge Bases metadata filtering and Verified Permissions. Managed ACL-aware filtering relies on verified identity supplied by the application; it is not user authentication.</aside>
+</section>

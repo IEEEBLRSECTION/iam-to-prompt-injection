@@ -1,0 +1,18 @@
+<section id="managed" data-transition="fade">
+<p class="eyebrow a-rise">From fixture to managed AWS services</p>
+<h2 class="a-rise d1">Where each boundary lives in production</h2>
+<table class="dtable a-rise d2">
+<tr class="dthead"><th style="width:22%">Boundary</th><th style="width:34%">Today’s demo</th><th style="width:44%">Managed AWS option</th></tr>
+<tr><td>User identity</td><td>Fixed synthetic persona per team</td><td>Amazon Cognito, tokens validated at API Gateway</td></tr>
+<tr><td>Content safeguards</td><td>ApplyGuardrail on supplied text</td><td>Guardrails attached to Converse or InvokeModel</td></tr>
+<tr><td>Document authorization</td><td>Backend filter on department</td><td>Knowledge Bases metadata filters, Verified Permissions</td></tr>
+<tr><td>Tool authorization</td><td>Backend refund gate</td><td>AgentCore Gateway Policy for routed tool calls</td></tr>
+<tr><td>Evidence</td><td>Application decision records</td><td>CloudWatch, CloudTrail, GuardDuty, Security Hub</td></tr>
+</table>
+<div class="callout a-fade d5" style="margin-top:28px">
+<p class="label-o">The responsibility does not move</p>
+<p>Managed filtering relies on a verified identity that your application supplies. It is not user authentication. Tool policy only governs calls that actually pass through the gateway.</p>
+</div>
+<p class="foot">Pradyoth · 48–58 min</p>
+<aside>Explain the production mapping without claiming the fixture implements any of these services. Bedrock’s managed ACL-aware filtering relies on verified identity supplied by the application. AgentCore Gateway Policy can independently govern tool calls routed through that gateway; calls must traverse the governed gateway. Knowledge Base costs depend on the selected retrieval and storage architecture; check them before enabling a quick-create backend.</aside>
+</section>

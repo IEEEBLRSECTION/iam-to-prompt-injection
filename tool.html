@@ -1,0 +1,24 @@
+<section id="tool" data-transition="fade">
+<p class="eyebrow a-rise">Tool authorization · demo</p>
+<h2 class="a-rise d1">A proposal is not authority</h2>
+<div class="row gap64">
+<div class="cases">
+<div class="case fragment"><p class="amt">₹500</p><p class="s26 muted grow">on the caller’s own synthetic order</p><x-shape kind="arrow-right" class="arr-s"></x-shape><div class="vcol"><p class="verdict v-allow">ALLOW</p><p class="vres">mock execution record</p></div></div>
+<div class="case fragment"><p class="amt">₹50,000</p><p class="s26 muted grow">on the same order, proposed by the model</p><x-shape kind="arrow-right" class="arr-s"></x-shape><div class="vcol"><p class="verdict v-wait">APPROVAL_REQUIRED</p><p class="vres">nothing executes</p></div></div>
+<div class="case fragment"><p class="amt">₹500</p><p class="s26 muted grow">on another synthetic user’s order</p><x-shape kind="arrow-right" class="arr-s"></x-shape><div class="vcol"><p class="verdict v-deny">DENY</p><p class="vres">nothing executes</p></div></div>
+</div>
+<div class="card grow colcard a-rise d2">
+<p class="label">The backend validates</p>
+<div class="vlist">
+<div class="vitem"><x-icon name="Check" class="ic"></x-icon><h3 class="h32">Caller</h3></div>
+<div class="vitem"><x-icon name="Check" class="ic"></x-icon><h3 class="h32">Order ownership</h3></div>
+<div class="vitem"><x-icon name="Check" class="ic"></x-icon><h3 class="h32">Amount</h3></div>
+<div class="vitem"><x-icon name="Check" class="ic"></x-icon><h3 class="h32">Currency</h3></div>
+</div>
+<p class="s24 muted">A chat message saying a manager approved it is not an approval.</p>
+</div>
+</div>
+<p class="pill a-fade d4">Backend policy demonstration; not a live AgentCore Policy deployment</p>
+<p class="foot">Pradyoth · 48–58 min</p>
+<aside>52:00–56:00. On screen in the demo: proposed tool arguments followed by the independent backend decision. The tool is deliberately synthetic. Click 1: ₹500 against the caller’s own synthetic order, show ALLOW and a mock-only execution record. Click 2: ₹50,000 against the same order, show APPROVAL_REQUIRED and no execution. Click 3, if time allows: ₹500 against another user’s order, show DENY. The model can propose ₹50,000; that proposal grants no authority. An allowlisted tool name alone is insufficient. If the model refuses to propose the above-limit action, use a clearly labeled direct test of the tool endpoint with a supplied synthetic proposal. Production mapping: AgentCore Gateway Policy can independently govern tool calls routed through that gateway. Exit check: participants explain why “the model refused” and “the backend denied the action” are different evidence.</aside>
+</section>

@@ -1,0 +1,20 @@
+<section id="policy" data-transition="fade">
+<p class="eyebrow a-rise">AWS foundations · demo</p>
+<h2 class="a-rise d1">Scope the role to the job</h2>
+<div class="row">
+<div class="card grow colcard a-left d2">
+<p class="label-o">Too broad</p>
+<p class="code">"Effect": "Allow",<br>"Action": "s3:*",<br>"Resource": "*"</p>
+<p class="s26 muted">It makes the demo work. It also reaches every bucket the account can see.</p>
+</div>
+<div class="card grow colcard a-rise d3">
+<p class="label">Scoped to the resource</p>
+<p class="code">"Effect": "Allow",<br>"Action": "s3:GetObject",<br>"Resource":<br>&#160;&#160;"arn:aws:s3:::demo-docs/engineering/*"</p>
+<div class="res fragment"><p class="verdict v-allow vw250">200 OK</p><p class="mono s24">GetObject engineering/guide.md</p></div>
+<div class="res fragment"><p class="verdict v-deny vw250">AccessDenied</p><p class="mono s24">GetObject finance/budget.md</p></div>
+</div>
+</div>
+<p class="pill a-fade d5">Illustrative policy fragments · synthetic bucket and objects</p>
+<p class="foot">Subramanya · 05–17 min</p>
+<aside>Demonstration: show a broad S3 permission next to a resource-scoped example. If the event account supports the required IAM controls, read a permitted synthetic object and show AccessDenied for an unrelated object (two clicks reveal the results). Otherwise use the rehearsed recording and say it is a recording. Evidence to point at: caller identity, attempted resource, allowed read, denied read. Never grant administrator access merely to make the demonstration work. The bucket name and object keys on this slide are placeholders: replace them with your fixture names.</aside>
+</section>

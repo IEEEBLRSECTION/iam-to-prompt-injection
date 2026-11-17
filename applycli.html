@@ -1,0 +1,20 @@
+<section id="applycli" data-transition="fade">
+<p class="eyebrow a-rise">Bedrock Guardrails · test without inference</p>
+<h2 class="a-rise d1">ApplyGuardrail from the CLI</h2>
+<div class="row gap64">
+<div class="term w1060 a-left d2">
+<div class="term-h"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><p class="tname">bash</p></div>
+<p class="code-s"><span class="c-m"># event-patterns · no model call</span><br>aws sts get-caller-identity --profile aws-demo<br><br>aws bedrock-runtime <span class="c-k">apply-guardrail</span> \<br>&#160;&#160;--profile aws-demo \<br>&#160;&#160;--region <span class="c-s">"$AWS_DEMO_REGION"</span> \<br>&#160;&#160;--guardrail-identifier <span class="c-s">"$AWS_DEMO_GUARDRAIL_ID"</span> \<br>&#160;&#160;--guardrail-version <span class="c-s">"$AWS_DEMO_GUARDRAIL_VERSION"</span> \<br>&#160;&#160;--source <span class="c-k">INPUT</span> \<br>&#160;&#160;--content <span class="c-s">'[{"text":{"text":</span><br><span class="c-s">&#160;&#160;&#160;&#160;"Please process ticket DEMO-ID-1234."}}]'</span></p>
+</div>
+<div class="side">
+<p class="label a-rise d3">Read four fields</p>
+<div class="fld a-rise d4"><p class="mono h30">action</p><p class="s26 muted">GUARDRAIL_INTERVENED or NONE</p></div>
+<div class="fld a-rise d5"><p class="mono h30">outputs</p><p class="s26 muted">The text your app must use next</p></div>
+<div class="fld a-rise d6"><p class="mono h30">assessments</p><p class="s26 muted">Which policy matched, and why</p></div>
+<div class="fld a-rise d7"><p class="mono h30">usage</p><p class="s26 muted">Text units the call consumed</p></div>
+</div>
+</div>
+<p class="s26 muted a-fade d8">Then repeat with “Please explain the return policy” and confirm the regex does not match. Use --source OUTPUT to test masking on generated text.</p>
+<p class="foot">Pradyoth · 35–48 min</p>
+<aside>The CLI examples assume AWS CLI authentication already works through a named profile. Do not create long-lived keys for this exercise. Replace the environment values with the rehearsed Region, Guardrail ID and version. First confirm who you are with get-caller-identity. Run the pattern case, then the benign case. Look at action, outputs, assessments and usage. The application must use the returned masked content when masking is intended: evaluating text and then forwarding the original defeats the step. The same API works for any text you extract yourself, such as a retrieved document or a tool result.</aside>
+</section>

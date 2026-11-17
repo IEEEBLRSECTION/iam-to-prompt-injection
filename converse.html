@@ -1,0 +1,19 @@
+<section id="converse" data-transition="fade">
+<p class="eyebrow a-rise">Bedrock Guardrails · optional model-connected call</p>
+<h2 class="a-rise d1">Attach the Guardrail to Converse</h2>
+<div class="row gap64">
+<div class="term w1060 a-left d2">
+<div class="term-h"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><p class="tname">converse_demo.py</p></div>
+<p class="code-s">runtime = session.client(<span class="c-s">"bedrock-runtime"</span>)<br>response = runtime.<span class="c-k">converse</span>(<br>&#160;&#160;modelId=os.environ[<span class="c-s">"AWS_DEMO_MODEL_ID"</span>],<br>&#160;&#160;system=[{<span class="c-s">"text"</span>: <span class="c-s">"You answer fictional support</span><br><span class="c-s">&#160;&#160;&#160;&#160;questions. Returns: 30 days."</span>}],<br>&#160;&#160;messages=[{<span class="c-s">"role"</span>: <span class="c-s">"user"</span>, <span class="c-s">"content"</span>: [{<br>&#160;&#160;&#160;&#160;<span class="c-k">"guardContent"</span>: {<span class="c-s">"text"</span>: {<span class="c-s">"text"</span>:<br>&#160;&#160;&#160;&#160;&#160;&#160;<span class="c-s">"What is the return policy?"</span>}}}]}],<br>&#160;&#160;inferenceConfig={<span class="c-s">"maxTokens"</span>: 150, <span class="c-s">"temperature"</span>: 0},<br>&#160;&#160;<span class="c-k">guardrailConfig</span>={<br>&#160;&#160;&#160;&#160;<span class="c-s">"guardrailIdentifier"</span>: GUARDRAIL_ID,<br>&#160;&#160;&#160;&#160;<span class="c-s">"guardrailVersion"</span>: GUARDRAIL_VERSION,<br>&#160;&#160;&#160;&#160;<span class="c-s">"trace"</span>: <span class="c-s">"enabled"</span>})</p>
+</div>
+<div class="side">
+<div class="fld a-rise d3"><p class="mono h30">guardContent</p><p class="s26 muted">Marks exactly which text the Guardrail evaluates</p></div>
+<div class="fld a-rise d4"><p class="mono h30">trace</p><p class="s26 muted">Returns the assessment, so you can name the check that fired</p></div>
+<div class="fld a-rise d5"><p class="mono h30">stopReason</p><p class="s26 muted">Shows when the Guardrail intervened</p></div>
+<div class="fld fld-o a-rise d6"><p class="mono h30">maxTokens 150</p><p class="s26 muted">Keeps cost and variance small on stage</p></div>
+</div>
+</div>
+<p class="pill a-fade d7">Documented implementation example from the runbook, not a tested artifact</p>
+<p class="foot">Pradyoth · 35–48 min</p>
+<aside>Use the event-semantic Guardrail and a small model already verified in the account. Prefer a small Amazon text model available to the actual account; do not assume a third-party model activates immediately or that a published listing grants access. Select one Region where both the model and the Guardrail policies work, and use an in-Region model path if the account restricts cross-Region inference. Print response stopReason and the output message content. When retrieved or tool-supplied untrusted content is added, evaluate it too, explicitly. Avoid logging complete traces that contain sensitive data.</aside>
+</section>

@@ -1,0 +1,17 @@
+<section id="mask" data-transition="fade">
+<p class="eyebrow a-rise">Guardrails · sensitive information</p>
+<h2 class="a-rise d1">Use the masked result, or nothing was masked</h2>
+<div class="card maskcard a-rise d2">
+<p class="mono s24 muted">Input · synthetic</p>
+<p class="code-xl">Asha Example, <span class="orange">asha@example.com</span>, needs a return.</p>
+<div class="row-c a-fade d5"><x-shape kind="arrow-down" class="arr-d"></x-shape><p class="label">ApplyGuardrail · sensitive information · email → mask</p></div>
+<p class="mono s24 muted a-rise d7">Returned content</p>
+<p class="code-xl a-rise d8">Asha Example, <span class="teal">{EMAIL}</span>, needs a return.</p>
+</div>
+<div class="row">
+<div class="card grow okc fragment"><div class="row-c"><x-icon name="Check" class="ic"></x-icon><h3 class="h32">Pass the returned content onward</h3></div><p class="s26 muted">The next step receives the masked value.</p></div>
+<div class="card grow badc fragment"><div class="row-c"><x-icon name="Warning" class="ic-o"></x-icon><h3 class="h32">Evaluate, then forward the original</h3></div><p class="s26 muted">The assessment ran. Nothing was applied.</p></div>
+</div>
+<p class="foot">Pradyoth · 35–48 min</p>
+<aside>40:00–43:00. We want the support issue to remain useful while the configured sensitive information is masked. Click sequence: evaluate the synthetic text, inspect the sensitive-information assessment, show the actual returned content, follow that value into the next step of the demo (or clearly label the next step as a preview), then run a support sentence with no email address. Two clicks on this slide reveal the right and wrong integration. Fallback: the configured DEMO-ID-[0-9]{4} custom-regex example; say it demonstrates a specific pattern rule, not semantic PII detection. Confirm in rehearsal that the masked token on this slide matches what your configuration returns.</aside>
+</section>

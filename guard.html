@@ -1,0 +1,21 @@
+<section id="guard" data-transition="fade">
+<p class="eyebrow a-rise">Amazon Bedrock Guardrails</p>
+<h2 class="a-rise d1">Three checks, one method</h2>
+<div class="row">
+<div class="gleft">
+<div class="card gcard a-left d2"><div class="chip"><x-icon name="Warning" class="ic-o"></x-icon></div><div class="gtext"><h3>Prompt attack filter</h3><p class="s26 muted">Tested on a direct instruction override</p></div></div>
+<div class="card gcard a-left d3"><div class="chip"><x-icon name="Lock" class="ic"></x-icon></div><div class="gtext"><h3>Sensitive information</h3><p class="s26 muted">Mask a synthetic email address</p></div></div>
+<div class="card gcard a-left d4"><div class="chip"><x-icon name="Chat" class="ic"></x-icon></div><div class="gtext"><h3>Denied topic</h3><p class="s26 muted">Personalized investment recommendations</p></div></div>
+</div>
+<div class="card steps a-rise d3">
+<p class="label">The same sequence, every time</p>
+<div class="step a-rise d4"><p class="stepn">1</p><p>Baseline request</p></div>
+<div class="step a-rise d5"><p class="stepn">2</p><p>Configured protection</p></div>
+<div class="step a-rise d6"><p class="stepn">3</p><p>Read the assessment</p></div>
+<div class="step a-rise d7"><p class="stepn">4</p><p>Retest a legitimate request</p></div>
+</div>
+</div>
+<p class="quote a-fade d8">ApplyGuardrail evaluates supplied text without invoking a model. A model-connected test is a separate, chargeable path.</p>
+<p class="foot">Pradyoth · 35–48 min</p>
+<aside>35:00–40:00. Guardrails lets us configure checks around the content the application processes. Each check has a specific purpose: we need to know which check ran, what content it evaluated, and what the application did with the result. On screen in the console: Guardrail ID, numbered version and the three active policies; keep configuration creation out of the live segment. Prompt attack assessment: run the same direct payload with the prepared filter, open the assessment, show the detection category and action, then repeat the legitimate return-policy question. If blocked: “This request was blocked under this configuration.” If missed: “The filter did not flag this request. We will keep that result and examine what the application’s independent permissions allow.” Avoid: “prompt injection is solved”, “the application is secure”, or attributing every model refusal to Guardrails without assessment evidence. Also available, not in the live core: word filters, custom regex, contextual grounding, Automated Reasoning.</aside>
+</section>
