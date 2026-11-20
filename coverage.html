@@ -1,23 +1,9 @@
-<section id="coverage" data-transition="push">
-<p class="eyebrow a-rise">A detail to check when you build this</p>
-<h2 class="a-rise d1">Not every field passes through the Guardrail</h2>
-<div class="row gap64">
-<div class="fields">
-<p class="label a-rise d2">Guardrail attached to a Converse call</p>
-<div class="field a-rise d3"><p class="fname">message text</p><p class="verdict v-allow">evaluated</p></div>
-<div class="field a-rise d4"><p class="fname">toolResult</p><p class="verdict v-deny">not evaluated</p></div>
-<div class="field a-rise d5"><p class="fname">toolSpec fields</p><p class="verdict v-deny">not evaluated</p></div>
-<div class="field a-rise d6"><p class="fname">toolUse.input</p><p class="verdict v-deny">not evaluated</p></div>
-</div>
-<div class="card grow colcard a-rise d7">
-<p class="label">So we do two things</p>
-<h3>Evaluate extracted untrusted text explicitly</h3>
-<p class="s26 muted">A separate integration step, and it still authorizes nothing.</p>
-<h3>Enforce authorization before any tool executes</h3>
-<p class="s26 muted">The document and refund checks apply even when the model proposes something outside the caller’s authority.</p>
-</div>
-</div>
-<p class="s24 muted a-fade d8">Per the Converse documentation as checked on 29 October 2026. Re-verify before the event.</p>
-<p class="foot">Pradyoth · 48–58 min</p>
-<aside>56:00–58:00. Attaching a Guardrail to Converse does not mean every tool-related field is assessed. The documented integration does not automatically evaluate tool results, tool definitions, or generated tool-call arguments. Map the actual fields and boundaries the application uses. Do not imply that wrapping a native toolResult in the normal request makes that field covered. Handoff at minute 58: “We have tested the preventive controls. Subramanya will connect those events to detection, investigation, and response.”</aside>
+<section id="coverage" class="student " data-transition="fade">
+<p class="eyebrow ">Bedrock Converse coverage</p>
+<h2>Converse Guardrail coverage has boundaries</h2>
+<div class="lesson"><table class="student-table"><thead><tr><th>Field</th><th>Attached Guardrail coverage</th></tr></thead><tbody><tr><td>Message text / guardContent</td><td>According to selected content and policy configuration</td></tr><tr><td>System prompt</td><td>Explicit guardContent configuration required</td></tr><tr><td>toolResult content</td><td>Not evaluated</td></tr><tr><td>toolSpec description and inputSchema</td><td>Not evaluated</td></tr><tr><td>Generated toolUse.input</td><td>Not evaluated</td></tr></tbody></table><p class="audience">Selective guarding changes coverage. Check the exact request, policy type and assessment.</p></div>
+
+
+
+<p class="foot">38 / 50</p>
 </section>

@@ -1,24 +1,7 @@
-<section id="arch" data-transition="push">
-<p class="eyebrow a-rise">API → document assistant → agent</p>
-<h2 class="a-rise d1">Every capability adds a boundary</h2>
-<div class="archrow">
-<div class="node a-rise d2"><div class="chip"><x-icon name="Users" class="ic"></x-icon></div><h3 class="h30">Caller</h3><p class="s24 muted">browser</p></div>
-<div class="hop a-rise d3"><x-shape kind="arrow-right" class="arr"></x-shape>
-<div class="node node-w"><div class="chip"><x-icon name="Cloud" class="ic"></x-icon></div><h3 class="h30">API Gateway + Lambda</h3><p class="s24 muted">authenticated backend</p></div></div>
-<div class="hop fragment"><x-shape kind="arrow-right" class="arr"></x-shape>
-<div class="node"><div class="chip"><x-icon name="Chat" class="ic"></x-icon></div><h3 class="h30">Amazon Bedrock</h3><p class="s24 muted">model inference</p></div></div>
-<div class="stack">
-<div class="hop fragment"><x-shape kind="arrow-right" class="arr"></x-shape>
-<div class="node node-w"><div class="chip"><x-icon name="Book" class="ic"></x-icon></div><h3 class="h30">Documents</h3><p class="s24 muted">retrieval adds context</p></div></div>
-<div class="hop fragment"><x-shape kind="arrow-right" class="arr"></x-shape>
-<div class="node node-w"><div class="chip"><x-icon name="Wrench" class="ic-o"></x-icon></div><h3 class="h30">Refund tool</h3><p class="s24 muted">proposes an action</p></div></div>
-</div>
-</div>
-<div class="checks fragment">
-<div class="check"><p class="cnum">CHECK 1</p><p class="s28">Caller identity</p></div>
-<div class="check"><p class="cnum">CHECK 2</p><p class="s28">Permitted documents</p></div>
-<div class="check"><p class="cnum">CHECK 3</p><p class="s28">Permitted action and arguments</p></div>
-</div>
-<p class="foot">Subramanya · 17–25 min</p>
-<aside>Four clicks. Start with API Gateway and Lambda as the familiar application pattern. Click 1: add Bedrock inference. Click 2: add document context and explain retrieval-augmented generation. Click 3: add a tool that proposes a refund. Click 4: mark the three checks. Demo: show the Engineering persona receiving Engineering content, then a mock refund proposal; stress the difference between proposed JSON and an executed backend operation. The demo uses a lightweight backend with small synthetic fixtures; AWS credentials stay on the backend. Handoff at minute 25: “We have mapped the application’s AWS access, documents, and tools. Pradyoth will now show how untrusted instructions can influence the AI and where we enforce the boundaries.”</aside>
+<section id="arch" class="student" data-transition="fade">
+<p class="eyebrow">AI application foundations</p>
+<h2>A chatbot, a RAG assistant and an agent</h2>
+<div class="lesson"><table class="student-table growth-table"><thead><tr><th>Application</th><th>What it does</th><th>AWS building blocks</th></tr></thead><tbody><tr><td><b>Chatbot</b></td><td>Generates an answer from the supplied conversation</td><td>Amazon Bedrock model inference</td></tr><tr class="fragment"><td><b>RAG assistant</b><br>Retrieval-augmented generation</td><td>Searches documents, then adds relevant passages to the model’s input</td><td>Bedrock Knowledge Bases + model</td></tr><tr class="fragment"><td><b>Agent</b></td><td>Proposes tool calls, receives results and may repeat</td><td>Bedrock + tools behind an authorized executor</td></tr></tbody></table><p class="aws-control">Retrieval adds information the model can see. Tools add actions the application can execute. Each capability adds a security boundary.</p></div>
+
+<p class="foot">5 / 50</p>
 </section>

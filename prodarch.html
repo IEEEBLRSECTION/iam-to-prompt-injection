@@ -1,29 +1,11 @@
-<section id="prodarch" data-transition="fade">
-<p class="eyebrow a-rise">Architecture · production vs today’s demo</p>
-<h2 class="a-rise d1">The same boundaries, at two sizes</h2>
-<p class="label a-rise d2">Production architecture to explain</p>
-<div class="flow a-left d2">
-<div class="nd"><p class="s26"><b>Browser</b></p><p class="s24 muted">Cognito sign-in</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>API Gateway</b></p><p class="s24 muted">authenticated API</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>Lambda</b></p><p class="s24 muted">orchestration</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd nd-on"><p class="s26"><b>Bedrock + Guardrails</b></p><p class="s24 muted">model and content checks</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd nd-o"><p class="s26"><b>Knowledge Bases · AgentCore Gateway</b></p><p class="s24 muted">with an authorization layer</p></div>
-</div>
-<div class="svc a-fade d4"><p class="svc-t">S3</p><p class="svc-t">KMS</p><p class="svc-t">Secrets Manager</p><p class="svc-t">Macie</p><p class="svc-t svc-o">CloudTrail</p><p class="svc-t svc-o">CloudWatch</p><p class="svc-t svc-o">GuardDuty</p><p class="svc-t svc-o">Security Hub</p><p class="svc-t svc-o">EventBridge</p></div>
-<div class="fragment">
-<p class="label-o" style="margin-top:44px">What we actually build for the low-cost demo</p>
-<div class="flow">
-<div class="nd"><p class="s26"><b>Speaker or team browser</b></p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd nd-on"><p class="s26"><b>Lightweight backend</b></p><p class="s24 muted">trusted persona · fixture filter · mock refund</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>Bedrock Guardrails</b></p><p class="s24 muted">plus an optional on-demand model</p></div>
-</div>
-</div>
-<p class="foot">Subramanya · 17–25 min</p>
-<aside>Production: browser to an authenticated application and API, an orchestration backend, Bedrock, then authorized retrieval and tools. Map identity to Cognito, IAM and STS; storage to S3; sensitive-data discovery to Macie; secrets and encryption to Secrets Manager and KMS; retrieval to Knowledge Bases plus an authorization layer; governed tools to backend authorization or AgentCore Gateway Policy; audit and response to CloudTrail, CloudWatch, GuardDuty, Security Hub and EventBridge. Click: the minimal demo. The backend holds a tiny set of synthetic documents, checks trusted persona claims before retrieval, and implements a mock refund function. No vector database is required. Explain the production mapping after showing the same boundary in the small fixture.</aside>
+<section id="prodarch" class="student " data-transition="fade">
+<p class="eyebrow ">Secrets and logging</p>
+<h2>A debug log becomes another data leak</h2>
+<div class="lesson"><pre class="sample-code" data-language="text"><code>INFO prompt=&quot;Customer: asha@example.com
+Internal API token: DEMO-ONLY-NOT-A-SECRET
+Please summarize this support request.&quot;</code></pre><p class="audience">Vote: where did the secret spread before the model answered?</p><div class="fragment answer"><p class="large-copy">The prompt now contains the secret. A log may retain it even after the chat window closes.</p></div><div class="student-columns"><div class="card colcard"><p class="label">Keep credentials at the tool boundary</p><p class="">Secrets Manager supplies credentials to the backend at runtime. The model receives only the tool result it needs.</p></div><div class="card colcard"><p class="label">Control the evidence you retain</p><p class="">CloudWatch and Bedrock invocation logs need deliberate content, retention and access settings. A log can become a second copy of sensitive input.</p></div></div></div>
+
+
+
+<p class="foot">16 / 50</p>
 </section>

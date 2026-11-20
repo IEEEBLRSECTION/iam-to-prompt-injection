@@ -1,29 +1,10 @@
-<section id="identityflow" data-transition="fade">
-<p class="eyebrow a-rise">AWS foundations · identity flow</p>
-<h2 class="a-rise d1">Two identities, two roles, one rule</h2>
-<div class="lane2 a-left d2">
-<div class="lname"><p class="label">Human</p><h3 class="h32">Support user</h3></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>Cognito</b></p><p class="s24 muted">sign-in, issues tokens</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>API Gateway</b></p><p class="s24 muted">validates the token</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd nd-on"><p class="s26"><b>Backend</b></p><p class="s24 muted">binds persona and department server-side</p></div>
-</div>
-<div class="lane2 a-left d4">
-<div class="lname"><p class="label">Workload</p><h3 class="h32">Lambda</h3></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>Execution role</b></p><p class="s24 muted">attached by IAM</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd"><p class="s26"><b>STS</b></p><p class="s24 muted">temporary credentials</p></div>
-<x-shape kind="arrow-right" class="arr-x"></x-shape>
-<div class="nd nd-on"><p class="s26"><b>Bedrock</b></p><p class="s24 muted">only the model and Guardrail it needs</p></div>
-</div>
-<div class="row fragment">
-<div class="card grow colcard"><p class="label">Setup identity</p><p class="s28">Creates the Guardrails and the hosting resources. Used before the event, not at runtime.</p></div>
-<div class="card grow colcard"><p class="label-o">Runtime identity</p><p class="s28">Invokes the selected model and applies one Guardrail. Nothing else.</p></div>
-</div>
-<p class="s28 muted a-fade d6" style="margin-top:24px">Never take authorization from the model’s claim, or from a field the browser sent.</p>
-<p class="foot">Subramanya · 05–17 min</p>
-<aside>Walk the two lanes. Human lane: the support user signs in, Cognito issues tokens, API Gateway validates them, and the backend binds the synthetic persona and department from trusted server state. Workload lane: the Lambda function runs with an execution role; STS supplies short-lived credentials; those credentials reach only the selected model and Guardrail. Click: separate the setup identity, which creates Guardrails and hosting before the event, from the runtime identity, which only invokes the model and applies the Guardrail. The caller’s department and order ownership must come from trusted backend state or a verified session. A client-supplied department field is not trusted identity. Never paste credentials into slides or Notion.</aside>
+<section id="identityflow" class="student " data-transition="fade">
+<p class="eyebrow ">Trusted identity</p>
+<h2>“I am in Finance” is just request data</h2>
+<div class="lesson"><pre class="sample-code" data-language="json"><code>{ &quot;message&quot;: &quot;Show the Finance budget&quot;,
+  &quot;department&quot;: &quot;Finance&quot; }</code></pre><div class="student-columns"><div class="card colcard"><p class="label">Verified identity</p><p class="large-copy">Signed-in user: Asha<br>Trusted department: Engineering</p></div><div class="card colcard"><p class="label">Caller-controlled request</p><p class="large-copy">Claimed department: Finance<br>The caller can edit this field.</p></div></div><p class="audience">Vote: which department should the backend trust?</p><div class="fragment answer"><p class="large-copy">The backend uses the verified Engineering membership and denies the Finance document.</p></div><p class="aws-control">Use signed membership from an authorized source. A department typed into the request is not proof of membership.</p></div>
+
+
+
+<p class="foot">11 / 50</p>
 </section>
