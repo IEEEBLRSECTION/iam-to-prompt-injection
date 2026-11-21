@@ -17,6 +17,15 @@ Open `index.html` in a browser. No server, AWS account or API key is required. F
 
 Buttons and selectors run the on-screen examples. Click the background after using a form control to resume keyboard navigation. URL fragments such as `index.html#17` select a slide.
 
+## Deploy on Vercel
+
+The deck is a static site with no build step. `vercel.json` tells Vercel to skip install and build and serve the repository root, and `.vercelignore` publishes only `index.html`.
+
+- From the dashboard: import the Git repository and accept the defaults. Every push to `main` then redeploys.
+- From a terminal: run `npx vercel` for a preview URL, then `npx vercel --prod` to publish.
+
+Slide links work on the deployed URL in the same way, for example `https://<your-project>.vercel.app/#21`.
+
 ## Lecture flow
 
 | Slides | Content |

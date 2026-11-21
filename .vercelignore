@@ -1,0 +1,6 @@
+# Only index.html is the presentation. The other root HTML files are
+# per-slide fragments kept for editing; they are not published.
+/*.html
+!/index.html
+/deck.css
+/README.md
