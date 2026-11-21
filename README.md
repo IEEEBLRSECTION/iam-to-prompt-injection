@@ -31,6 +31,14 @@ Buttons and selectors run the on-screen examples. Click the background after usi
 
 A 45-minute interactive lecture for second- and third-year students. Subramanya opens with cloud foundations and AI-assisted attack cases. Pradyoth leads AI application security and the research cases. Subramanya closes with detection and response. The slides contain worked examples and audience questions, with no participant exercises, speaker notes, setup runbooks or reference appendices.
 
+## Motion and diagrams
+
+Every slide carries an animated diagram of its idea: request flows, attack chains, timelines, meters and gauges. The flows on the example slides react to the on-screen controls. A drifting network background, staggered entrances and slide transitions run throughout, and the closing slide fires confetti.
+
+Slide 21 is an AWS trace lab that follows the poisoned-file lab: drag the same resume through S3, a Lambda extractor, `ApplyGuardrail`, a Bedrock model, an AgentCore Gateway policy and the offer-email tool. Two switches turn the Guardrail check and the tool-gate approval on or off, and a side panel lists what CloudTrail, CloudWatch and the Guardrail trace would hold at each stage. Its values are illustrative, like the other examples.
+
+All of it is inline SVG, CSS and a small script at the end of `index.html` (the `FX layer` block in the styles, and the last `<script>`). Nothing new is loaded from the network. With the operating system's reduce-motion setting on, every animation is switched off and each diagram shows its finished state.
+
 ## Example boundaries
 
 Interactive examples run deterministic JavaScript locally. They do not invoke a model, call AWS, reproduce the Bedrock classifiers or implement the complete IAM policy engine. All support records, refunds and finding fixtures are synthetic. Labels distinguish illustrative results from real evidence.
