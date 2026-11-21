@@ -1,30 +1,9 @@
-<section id="limits" data-transition="fade">
-<p class="eyebrow a-rise">What these tests proved</p>
-<h2 class="a-rise d1">Three checks. We have tested one.</h2>
-<div class="row">
-<div class="card ccard a-rise d2">
-<p class="status st-done">Tested</p>
-<h3>Content safeguard</h3>
-<p>Is this content acceptable under this configuration?</p>
-<div class="grow"></div>
-<p class="label">Bedrock Guardrails</p>
-</div>
-<div class="card ccard a-rise d3">
-<p class="status st-next">Next</p>
-<h3>Document authorization</h3>
-<p>May this caller receive this document?</p>
-<div class="grow"></div>
-<p class="label-o">Decided at the data boundary</p>
-</div>
-<div class="card ccard a-rise d4">
-<p class="status st-next">Next</p>
-<h3>Tool authorization</h3>
-<p>May this caller execute this action, with these arguments?</p>
-<div class="grow"></div>
-<p class="label-o">Decided at the tool boundary</p>
-</div>
-</div>
-<p class="quote a-fade d6">A request for the Finance budget can be clearly worded, with no attack language at all. Someone still has to decide whether this caller may receive it.</p>
-<p class="foot">Pradyoth · 35–48 min</p>
-<aside>46:00–48:00. We have evaluated specific content against specific settings, looked at the actual assessment, and repeated legitimate requests. The next decision is different: whether this caller may receive a document, and whether a proposed refund is authorized. Those decisions belong at the data and tool boundaries. A prompt attack filter is not an ownership or tool-permission check. Timing check: if behind schedule, skip further policy examples and preserve the retrieval and tool demonstrations.</aside>
+<section id="limits" class="student " data-transition="fade">
+<p class="eyebrow ">Content, documents and actions</p>
+<h2>Which control belongs at this boundary?</h2>
+<div class="lesson"><table class="student-table"><thead><tr><th>Case</th><th>Choose the control</th></tr></thead><tbody><tr><td>A response contains an email address.</td><td class="fragment">Content safeguard</td></tr><tr><td>Engineering requests the Finance budget.</td><td class="fragment">Document authorization</td></tr><tr><td>An agent proposes a ₹50,000 refund.</td><td class="fragment">Tool authorization</td></tr></tbody></table><p class="audience">Vote on each case. Then reveal the control.</p><p class="aws-control">Bedrock Guardrails evaluates content. The retrieval and execution boundaries enforce application permissions.</p></div>
+
+
+
+<p class="foot">44 / 50</p>
 </section>

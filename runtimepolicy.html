@@ -1,18 +1,14 @@
-<section id="runtimepolicy" data-transition="fade">
-<p class="eyebrow a-rise">AWS foundations · least privilege</p>
-<h2 class="a-rise d1">The runtime role, written down</h2>
-<div class="row gap64">
-<div class="term w1000 a-left d2">
-<div class="term-h"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><p class="tname">runtime-role-policy.json</p></div>
-<p class="code-s">{<br>&#160;&#160;<span class="c-k">"Effect"</span>: <span class="c-s">"Allow"</span>,<br>&#160;&#160;<span class="c-k">"Action"</span>: <span class="c-s">"bedrock:ApplyGuardrail"</span>,<br>&#160;&#160;<span class="c-k">"Resource"</span>: <span class="c-s">"arn:aws:bedrock:REGION:ACCOUNT:</span><br><span class="c-s">&#160;&#160;&#160;&#160;guardrail/GUARDRAIL_ID"</span><br>},<br>{<br>&#160;&#160;<span class="c-k">"Effect"</span>: <span class="c-s">"Allow"</span>,<br>&#160;&#160;<span class="c-k">"Action"</span>: <span class="c-s">"bedrock:InvokeModel"</span>,<br>&#160;&#160;<span class="c-k">"Resource"</span>: <span class="c-s">"arn:aws:bedrock:REGION::</span><br><span class="c-s">&#160;&#160;&#160;&#160;foundation-model/MODEL_ID"</span><br>}</p>
-</div>
-<div class="side">
-<div class="fld a-rise d3"><p class="label">Allowed</p><p class="s28">Apply one Guardrail. Invoke one preflighted model. Converse calls use the InvokeModel permission.</p></div>
-<div class="fld fld-o a-rise d4"><p class="label-o">Not in this role</p><p class="s28">Creating or changing Guardrails, IAM changes, other buckets, other models.</p></div>
-<div class="fld a-rise d5"><p class="label">Check it</p><p class="s28">IAM Access Analyzer validates the policy and shows unused access after a test run.</p></div>
-</div>
-</div>
-<p class="pill a-fade d6">Illustrative · replace REGION, ACCOUNT, GUARDRAIL_ID and MODEL_ID with your preflighted values</p>
-<p class="foot">Subramanya · 05–17 min</p>
-<aside>For standalone evaluations, bedrock:ApplyGuardrail is the relevant runtime permission. Model-connected calls need the appropriate inference permissions too. Console listing and setup permissions are separate and belong to the setup identity. If the application needs to read synthetic fixtures from S3 or write logs, add narrowly scoped storage and logging statements, nothing broader. Keep the baseline environment isolated and synthetic: if production-style IAM enforcement requires a Guardrail, use a separately scoped demo baseline rather than weakening that enforced runtime role. Verify the exact actions against current Bedrock IAM documentation before the event.</aside>
+<section id="runtimepolicy" class="student " data-transition="fade">
+<p class="eyebrow ">IAM enforcement for model inference</p>
+<h2>What if the caller omits the Guardrail?</h2>
+<div class="lesson"><div class="experiment" data-experiment="enforcement">
+<p class="experiment-label">Local simulation · synthetic data</p>
+<p class="experiment-prompt">The role can invoke the model. Is permission to use a Guardrail enough to require it?</p>
+<div class="controls"><label>Inference permission<select name="policy"><option value="optional">InvokeModel allowed · Guardrail optional</option><option value="required">Require the approved Guardrail</option></select></label><label class="check-control"><input type="checkbox" name="attached" >Attach the approved Guardrail</label><button type="button" class="" data-action="run">Evaluate request</button></div>
+<pre class="demo-result" aria-live="polite" aria-atomic="true">Run the example to reveal the result.</pre>
+</div><p class="mono large-copy">IAM condition key: bedrock:GuardrailIdentifier</p><p class="fine-print">An IAM policy can explicitly deny supported inference requests that omit the approved Guardrail and version. This requires the policy to cover the caller and resources. Requiring attachment does not guarantee every attack is detected.</p></div>
+
+
+
+<p class="foot">36 / 50</p>
 </section>

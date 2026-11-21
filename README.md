@@ -1,49 +1,53 @@
 # From IAM to Prompt Injection
 
-Slides for a 90-minute technical session at **AWS Student Community Day Mysuru 2026**, Vidyavardhaka College of Engineering.
+An interactive lecture for second- and third-year students at AWS Student Community Day Mysuru 2026.
 
-**Speakers:** Subramanya Navada KR and Pradyoth Prashanth
+Subramanya Navada KR opens with application and cloud security foundations. Pradyoth Prashanth leads AI foundations, prompt injection, the Jack & Jill research case, Bedrock Guardrails, retrieval authorization and agent tool security. Subramanya closes with detection and incident response.
 
-The session follows one fictional customer-support assistant as it grows from an API into a document assistant and then an agent with a mock refund tool. It covers the AWS controls the application needs before a model is added, how prompt injection reaches the model, what Amazon Bedrock Guardrails can and cannot check, and why document access and tool actions need their own authorization. It ends with a 20-minute participant exercise.
+## Open the presentation
 
-## Present it
-
-Open `index.html` in a browser. It's a single self-contained page; fonts load from Google Fonts.
+Open `index.html` in a browser. No server, AWS account or API key is required. Fonts load from Google Fonts when available, with local fallbacks.
 
 | Key | Action |
 | --- | --- |
-| → · Space · click | Next reveal or slide |
-| ← · click left edge | Back |
+| Right / Space / click background | Next reveal or slide |
+| Left / click left background | Previous reveal or slide |
 | F | Fullscreen |
-| N | Speaker notes |
 | Home / End | First / last slide |
 
-Swipe works on touch screens. Each slide has its own URL, so `index.html#12` opens slide 12.
+Buttons and selectors run the on-screen examples. Click the background after using a form control to resume keyboard navigation. URL fragments such as `index.html#17` select a slide.
 
-## Run of show
+## Lecture flow
 
-| Time | Lead | Segment |
-| --- | --- | --- |
-| 00–05 | Subramanya | Opening and the application story |
-| 05–17 | Subramanya | AWS security foundations |
-| 17–25 | Subramanya | API → document assistant → agent |
-| 25–35 | Pradyoth | How AI applications fail |
-| 35–48 | Pradyoth | Bedrock Guardrails demonstration |
-| 48–58 | Pradyoth | RAG and tool authorization |
-| 58–65 | Subramanya | Detection and response |
-| 65–85 | Both | Participant exercise |
-| 85–90 | Both | Debrief and questions |
+| Slides | Content |
+| --- | --- |
+| 1–4 | Opening challenge, five questions and the two sides of AI security |
+| 5–19 | Application and cloud foundations, recent attack cases, identities, IAM, encryption, secrets and cost |
+| 20–23 | LLM context, trust boundaries and direct / indirect prompt injection |
+| 24–27 | Pradyoth’s Jack & Jill resume case, AWS design and execution evidence |
+| 28–33 | Guardrails, false positives, hallucinations, grounding and persistent memory poisoning |
+| 34–45 | Guardrail integration, document / tool permissions, Cline incident and AWS pipeline controls |
+| 46–50 | GuardDuty AI Protection, logs, alert routing and incident response |
 
-Slides 36–39 are reference material on running the lab on AWS (architecture, cost, Free Tier, next builds); they can be skipped in the live talk.
+A 45-minute interactive lecture for second- and third-year students. Subramanya opens with cloud foundations and AI-assisted attack cases. Pradyoth leads AI application security and the research cases. Subramanya closes with detection and response. The slides contain worked examples and audience questions, with no participant exercises, speaker notes, setup runbooks or reference appendices.
 
-## Repository
+## Example boundaries
 
-- `index.html`: the presentation
-- `source/`: the original slide files (`deck.json`, `deck.css`, one HTML file per slide)
+Interactive examples run deterministic JavaScript locally. They do not invoke a model, call AWS, reproduce the Bedrock classifiers or implement the complete IAM policy engine. All support records, refunds and finding fixtures are synthetic. Labels distinguish illustrative results from real evidence.
 
-## Notes
+The Jack & Jill material comes from Pradyoth’s published research at https://ppradyoth.com/research/. The resume result and the separate chat-and-email test are identified separately. Delivered email does not establish a valid job offer. The AWS architecture is a proposed defense for the failure pattern, not a claim about the researched service’s hosting stack.
 
-- All records, identifiers, customer details and tool actions in the slides are synthetic.
-- The AWS demos are a preparation plan, not a verified deployment.
-- AWS documentation and pricing were checked on 29 October 2026; re-check before relying on them.
-- IAM policies and resource names on the slides are illustrative placeholders.
+## Recent cases
+
+The lecture uses four primary-source 2026 reports. Case slides link to the original report and distinguish the incident date from the publication date. AWS defense mappings are proposed designs, not claims about the affected service’s hosting stack.
+
+| Case | Primary source |
+| --- | --- |
+| FortiGate campaign | [Amazon Threat Intelligence, 20 Feb 2026](https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/) |
+| AI-assisted exposed-secret abuse | [Microsoft Threat Intelligence, 5 Nov 2026](https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/) |
+| AI recommendation poisoning attempts | [Microsoft Defender Security Research, 10 Feb 2026](https://www.microsoft.com/en-us/security/blog/2026/02/10/ai-recommendation-poisoning/) |
+| Unauthorized Cline CLI release | [Cline maintainer post-mortem, 24 Feb 2026](https://cline.bot/blog/post-mortem-unauthorized-cline-cli-npm) |
+
+## Editing
+
+`index.html` is the complete runnable presentation, including the additional concept and research slides. Existing root HTML fragments mirror their corresponding slides. `deck.css` holds the shared slide styling, also embedded in `index.html`. Keep corresponding content and styles synchronized when editing.

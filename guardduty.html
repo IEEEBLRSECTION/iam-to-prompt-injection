@@ -1,20 +1,14 @@
-<section id="guardduty" data-transition="fade">
-<p class="eyebrow a-rise">GuardDuty · optional sample-finding demo</p>
-<h2 class="a-rise d1">Generate a labeled sample, then follow it</h2>
-<div class="row gap64">
-<div class="term w1000 a-left d2">
-<div class="term-h"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><p class="tname">bash</p></div>
-<p class="code-s"><span class="c-m"># find the detector in the demo Region</span><br>aws guardduty <span class="c-k">list-detectors</span> \<br>&#160;&#160;--profile aws-demo \<br>&#160;&#160;--region <span class="c-s">"$AWS_DEMO_REGION"</span><br><br><span class="c-m"># create a SAMPLE finding</span><br>aws guardduty <span class="c-k">create-sample-findings</span> \<br>&#160;&#160;--profile aws-demo \<br>&#160;&#160;--region <span class="c-s">"$AWS_DEMO_REGION"</span> \<br>&#160;&#160;--detector-id <span class="c-s">DETECTOR_ID</span> \<br>&#160;&#160;--finding-types <span class="c-s">Backdoor:EC2/DenialOfService.Tcp</span></p>
-</div>
-<div class="side">
-<p class="label a-rise d3">Show on screen</p>
-<div class="fld a-rise d4"><p class="s28">The <b>SAMPLE</b> label, severity and timestamp</p></div>
-<div class="fld a-rise d5"><p class="s28">The affected identity and resource</p></div>
-<div class="fld a-rise d6"><p class="s28">Delivery to a narrowly scoped EventBridge target</p></div>
-<div class="fld a-rise d7"><p class="s28">Where it would surface in Security Hub</p></div>
-</div>
-</div>
-<p class="s26 muted a-fade d8">This sample type demonstrates routing, not an AI attack. Pick a supported AI sample type only after checking availability in the Region.</p>
-<p class="foot">Subramanya · 58–65 min</p>
-<aside>Use this only if the facilitator account supports it and the applicable trial is confirmed. The GuardDuty trial is regional and protection-plan-specific; existing trials may already have expired. Inspect the Region’s GuardDuty status first and decide which plans are actually necessary: do not enable every security service for a seven-minute segment. Generate the sample in a dedicated lab context. Propose a response such as disabling the event application’s access, rather than automatically changing unrelated account resources. If the account cannot use GuardDuty without a plan change, use the prerecorded sample walkthrough.</aside>
+<section id="guardduty" class="student " data-transition="fade">
+<p class="eyebrow ">GuardDuty and EventBridge</p>
+<h2>A sample finding lets us test the route</h2>
+<div class="lesson"><div class="experiment" data-experiment="finding">
+<p class="experiment-label">Local simulation · synthetic data</p>
+<p class="experiment-prompt">A constructed EC2 sample demonstrates the alert route. It does not demonstrate an AI attack detection.</p>
+<div class="controls"><button type="button" class="" data-action="generate">Generate an illustrative sample</button><button type="button" class="" data-action="route">Route sample to mock queue</button></div>
+<pre class="demo-result" aria-live="polite" aria-atomic="true">Run the example to reveal the result.</pre>
+</div><p class="aws-control">On AWS: generate a supported GuardDuty sample finding, match it with EventBridge, then inspect the configured target.</p></div>
+
+
+
+<p class="foot">49 / 50</p>
 </section>

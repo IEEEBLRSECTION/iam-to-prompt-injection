@@ -1,13 +1,13 @@
-<section id="outcomes" data-transition="fade">
-<p class="eyebrow a-rise">How AI applications fail</p>
-<h2 class="a-rise d1">Four outcomes that need different evidence</h2>
-<div class="stairs">
-<div class="card stair fragment"><div class="bx bx1"></div><p class="qnum">01</p><h3>Response deviation</h3><p class="s26 muted">The answer moved away from the task.</p></div>
-<div class="card stair fragment"><div class="bx bx2"></div><div class="sp2"></div><p class="qnum">02</p><h3>Data disclosure</h3><p class="s26 muted">Protected information was returned.</p></div>
-<div class="card stair fragment"><div class="bx bx3"></div><div class="sp3"></div><p class="qnum">03</p><h3>Attempted action</h3><p class="s26 muted">The model proposed a tool call.</p></div>
-<div class="card stair fragment"><div class="bx bx4"></div><div class="sp4"></div><p class="qnum">04</p><h3>Executed action</h3><p class="s26 muted">The backend actually ran it.</p></div>
-</div>
-<p class="quote a-fade d3">A strange answer is not an account compromise. A failed attack is still a result.</p>
-<p class="foot">Pradyoth · 25–35 min</p>
-<aside>33:00–35:00. One click per step. For each attempt ask what actually happened: did the answer change, was protected information returned, was an action proposed, did the backend execute it? Those observations need different evidence. Do not claim a model is vulnerable because a payload was submitted, and do not relabel a blocked attempt as a compromise. Also name unsafe output handling and excessive agency: generated text can become application behaviour, and more agency raises the impact of a wrong tool decision. Transition at 35:00: open the prepared Guardrails configuration.</aside>
+<section id="outcomes" class="student " data-transition="fade">
+<p class="eyebrow ">evidence of impact</p>
+<h2>“Refund complete” proves very little</h2>
+<div class="lesson"><div class="student-columns"><div class="card colcard"><p class="label">Chat text</p><p class="large-copy">“I refunded ₹50,000.”</p><p class="">A claim the model can generate.</p></div><div class="card colcard"><p class="label">Tool proposal</p><pre class="sample-code" data-language="json"><code>{
+  &quot;orderId&quot;: &quot;DEMO-101&quot;,
+  &quot;amount&quot;: 50000,
+  &quot;currency&quot;: &quot;INR&quot;
+}</code></pre><p class="">Arguments the backend must validate.</p></div><div class="card colcard"><p class="label">Execution evidence</p><p class="large-copy">Mock ledger: 0 transactions</p><p class="">The trusted handler required approval.</p></div></div><p class="audience">A model’s statement, a tool proposal and a completed transaction are different evidence. The trusted execution record establishes what actually happened.</p></div>
+
+
+
+<p class="foot">27 / 50</p>
 </section>
