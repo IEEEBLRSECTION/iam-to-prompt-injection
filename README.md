@@ -37,6 +37,8 @@ Every slide carries an animated diagram of its idea: request flows, attack chain
 
 Slide 21 is an AWS trace lab that follows the poisoned-file lab: drag the same resume through S3, a Lambda extractor, `ApplyGuardrail`, a Bedrock model, an AgentCore Gateway policy and the offer-email tool. Two switches turn the Guardrail check and the tool-gate approval on or off, and a side panel lists what CloudTrail, CloudWatch and the Guardrail trace would hold at each stage. Its values are illustrative, like the other examples.
 
+Every AWS service named on a slide is marked in orange, each AWS note carries an AWS tag in the margin, and an AWS strip at the bottom right lists the services that slide uses. The script builds these when the page loads, from the list of service names at the top of the last `<script>`.
+
 All of it is inline SVG, CSS and a small script at the end of `index.html` (the `FX layer` block in the styles, and the last `<script>`). Nothing new is loaded from the network. With the operating system's reduce-motion setting on, every animation is switched off and each diagram shows its finished state.
 
 ## Example boundaries
